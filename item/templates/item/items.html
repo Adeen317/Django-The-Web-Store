@@ -1,0 +1,51 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+<div class="pb-6 grid grid-cols-4 gap-4">
+    <div class="col-span-1 bg-cyan-900 rounded-xl">
+        <form method="get" action="{% url 'item:items' %}">
+            <input name="query" class="w-full py-4 px-6 bg-gray-100 border rounded-b-xl" type="text" value="{{ query }}" placeholder="Shirts, Shoes, Jackets,....">
+            <button class="mt-2 mx-10 py-4 px-8 text-lg bg-teal-500 text-white rounded-xl">Search</button> 
+        </form>
+
+        <hr class="my-6">
+        <p class="font-bold text-2xl text-white mx-4">Categories</p>
+
+        <ul>
+            {% for category in categories %}
+            <li class="py-2 px-2 mx-4 font-semibold text-white rounded-xl{% if category.id == category_id %} bg-gray-800{% endif %}">
+                <a href="{% url 'item:items' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <hr class="my-6">
+        <p class="font-bold text-2xl text-white mx-4">Clear Selection</p>
+
+        <ul>
+            <li><a href="{% url 'item:items' %}" class="mt-2 py-3 px-6 mx-10 inline-block bg-yellow-600 text-white text-lg rounded-xl">Clear</a></li>
+        </ul>
+    </div>
+
+    <div class="col-span-3">
+        <div class="grid grid-cols-3 gap-3">
+            {% for item in items %}
+            <div>
+                <a href= "{% url 'item:detail' item.id %}">   
+                    <div>
+                        <img src="{{item.image.url}}" class="rounded-xl ">
+                    </div>
+                    
+                    <div class="p-6 bg-gray-100 rounded-xl hover:bg-gray-300">
+                        <h2 class="text-2xl">{{item.name}}</h2>
+                        <p class="text-gray-500">Price: Rs.{{item.price}}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
