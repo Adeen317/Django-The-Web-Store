@@ -47,4 +47,6 @@ Here are the steps to create a folder, set up a virtual environment, install Dja
 
 These steps will help you create a clean development environment and get your Django project up and running professionally.
 
+![Welcome _ The Web-Store - Google Chrome 2023-12-30 02-31-21 (1)](https://github.com/Adeen317/Django-The-Web-Store/assets/112985225/218d10aa-22c2-4c51-895a-d4b0507fbb51)
+
 
