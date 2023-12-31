@@ -1,1 +1,1 @@
-# The WEB STORE
+# THE WEB STORE
